@@ -1,0 +1,120 @@
+#player {
+    width: 720px;
+    height: 530px;
+    margin: 100px auto;
+    border: solid 1px rgb(51, 51, 51);
+    border-radius: 2px;
+    padding: 0;
+}
+
+video {
+    display: block;
+    width: 720px;
+    height: 480px;
+    margin: 0;
+    padding: 0;
+    border-style: none;
+    background-color: rgb(30, 30, 30);
+}
+
+.controls {
+    width: 720px;
+    height: 50px;
+    margin: 0;
+    padding: 0;
+    border-style: none;
+    background-color: rgb(51, 51, 51);
+}
+
+.controls .button {
+    display: block;
+    float: left;
+    width: 40px;
+    height: 40px;
+    margin: 5px 0 0 10px;
+    padding: 0;
+    font-family: "Font Awesome 5 Free";
+    font-style: normal;
+    font-variant: normal;
+    text-rendering: auto;
+    font-weight: 900;
+    font-size: 30px;
+    line-height: 40px;
+    color: rgb(220, 220, 220);
+}
+
+.controls .button:hover {
+    cursor: pointer;
+    color: rgb(255, 129, 60);
+}
+
+.controls .button.play:before {
+    content: "\f04c";
+}
+
+.controls .button.play.paused:before {
+    content: "\f04b";
+}
+
+.controls .button.stop:before {
+    content: "\f04d";
+}
+
+.controls .button.file:before {
+    content: "\f093";
+}
+
+.controls .upload {
+    display: none;
+}
+
+.controls .seekbar {
+    -webkit-appearance: none;
+    display: block;
+    float: left;
+    width: 500px;
+    height: 40px;
+    margin: 5px 0 0 10px;
+    background: transparent;
+}
+
+.controls .seekbar:focus {
+    outline: none;
+}
+
+.controls .seekbar::-webkit-slider-thumb {
+    -webkit-appearance: none;
+}
+
+.controls .seekbar::-moz-range-thumb {
+    border: solid 1px rgb(153, 153, 153);
+    border-radius: 0;
+    height: 30px;
+    width: 8px;
+    background: rgb(220, 220, 220);
+    cursor: pointer;
+}
+
+.controls .seekbar::-moz-range-track {
+    height: 8px;
+    cursor: pointer;
+    background: rgb(255, 129, 60);
+    border: none;
+}
+
+.controls .seekbar::-moz-focus-outer {
+    border: 0;
+}
+
+.controls .label.time {
+    display: block;
+    float: left;
+    width: 40px;
+    height: 40px;
+    margin: 5px 0 0 10px;
+    padding: 0;
+    font-weight: 600;
+    font-size: 14px;
+    line-height: 40px;
+    color: rgb(255, 129, 60);
+}
