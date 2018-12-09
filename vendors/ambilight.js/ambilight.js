@@ -8,13 +8,37 @@
     IMAGE_DATA_VECTOR_LENGTH = 4;
 
   var shadowCanvas,
-  shadowContext;
+    shadowContext;
+
+  (function() {
+    shadowCanvas = document.createElement("canvas");
+    shadowContext = shadowCanvas.getContext("2d");
+    shadowCanvas.style["display"] = "none";
+    document.body.appendChild(shadowCanvas);
+  }());
 
   function AmbilightContainer(el) {
     this.el = el;
-    initContainer.call(this);
-    setColor.call(this, BOX_SHADOW_DEFAULT_COLOR);
+    this.el.classList.add("ambilight-container");
+    this.setColor(BOX_SHADOW_DEFAULT_COLOR);
   }
+
+  AmbilightContainer.prototype.update = function(source) {
+    let color;
+    if (typeof source === "string") {
+      color = source;
+    }
+    if (source instanceof HTMLVideoElement) {
+      color = getColorFromVideo(source);
+    }
+    this.setColor(color);
+  };
+
+  AmbilightContainer.prototype.setColor = function(color) {
+    this.el.style["box-shadow"] = BOX_SHADOW_STRING.replace("{{COLOR}}",
+      color);
+    this.el.style["border-color"] = color;
+  };
 
   function getColorFromVideo(video) {
     let color = {
@@ -22,11 +46,8 @@
         g: 0,
         b: 0,
       },
-      pixels;
-    shadowCanvas.width = video.videoWidth;
-    shadowCanvas.height = video.videoHeight;
-    shadowContext.drawImage(video, 0, 0);
-    pixels = shadowContext.getImageData(0, 0,  shadowCanvas.width,shadowCanvas.height).data;
+      pixels = getImageDataFromVideo(video);
+
     for (let i = 0; i < pixels.length; i += IMAGE_DATA_VECTOR_LENGTH) {
       color.r += pixels[i];
       color.g += pixels[i + 1];
@@ -39,34 +60,13 @@
     return "rgb(" + color.r + "," + color.g + "," + color.b + ")";
   }
 
-  AmbilightContainer.prototype.update = function(source) {
-    let color;
-    if (typeof source === "string") {
-      color = source;
-    }
-    if (source instanceof HTMLVideoElement) {
-      color = getColorFromVideo(source);
-    }
-    setColor.call(this, color);
-  };
-
-  function initContainer() {
-    this.el.classList.add("ambilight-container");
-  }
-
-  function setColor(color) {
-    this.el.style["box-shadow"] = BOX_SHADOW_STRING.replace("{{COLOR}}",
-      color);
-    this.el.style["border-color"] = color;
-  }
-
-  function createShadowCanvas() {
-    shadowCanvas = document.createElement("canvas");
-    shadowContext = shadowCanvas.getContext("2d");
-    shadowCanvas.style["display"] = "none";
-    document.body.appendChild(shadowCanvas);
+  function getImageDataFromVideo(video) {
+    shadowCanvas.width = video.videoWidth;
+    shadowCanvas.height = video.videoHeight;
+    shadowContext.drawImage(video, 0, 0);
+    return shadowContext.getImageData(0, 0, shadowCanvas.width,
+      shadowCanvas.height).data;
   }
 
   context.AmbilightContainer = AmbilightContainer;
-  createShadowCanvas();
 }(window));
