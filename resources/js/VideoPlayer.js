@@ -4,7 +4,7 @@ var AmbiPlayer = AmbiPlayer || {};
 
 AmbiPlayer.VideoPlayer = function(videoEl) {
   "use strict";
-  var that = {},
+  var that = new EventTarget(),
     playerEl,
     controls = {
       uploadEl: null,
@@ -107,6 +107,9 @@ AmbiPlayer.VideoPlayer = function(videoEl) {
   }
 
   function onVideoTimeChanged() {
+    let event = new Event("videoFrameChanged");
+    event.data = playerEl;
+    that.dispatchEvent(event); 
     syncSeekbar();
     syncTimeLabel();
   }
