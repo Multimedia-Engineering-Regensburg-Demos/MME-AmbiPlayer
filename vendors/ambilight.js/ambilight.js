@@ -1,11 +1,5 @@
 /* eslint-env browser */
 
-// Transforms any block element into an ambilight container
-// Allows setting of current ambilight color
-// Sets box-shadow attributs for element
-// Provides transition effect between colors
-// 
-
 (function(context) {
   "use strict";
 
