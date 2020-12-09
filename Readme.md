@@ -1,6 +1,6 @@
 # AmbiPlayer
 
-Informationen und eine Anleitung zur Implementierung der Demo finden Sie [hier](https://regensburger-forscher.de/mme/Demos/ambi-player/).
+Informationen und eine Anleitung zur Implementierung der Demo finden Sie [hier](https://multimedia-engineering.git-pages.uni-regensburg.de/mme-online/#/Demos/ambi-player).
 
 ## Download
 
