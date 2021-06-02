@@ -17,8 +17,5 @@
     "bugs": {
         "url": "https://github.com/Multimedia-Engineering-Regensburg-Demos/MME-AmbiPlayer/issues"
     },
-    "homepage": "https://github.com/Multimedia-Engineering-Regensburg-Demos/MME-AmbiPlayer#readme",
-    "dependencies": {
-        "http-server": "^0.12.3"
-    }
+    "homepage": "https://github.com/Multimedia-Engineering-Regensburg-Demos/MME-AmbiPlayer#readme"
 }
