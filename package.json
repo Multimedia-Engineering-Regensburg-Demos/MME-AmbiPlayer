@@ -3,8 +3,11 @@
     "version": "1.0.0",
     "description": "A ambilight video player",
     "main": "index.js",
+    "type": "module",
     "scripts": {
-        "test": "echo \"Error: no test specified\" && exit 1"
+        "setup": "npm install",
+        "start": "node index.js",
+        "eslint": "eslint --format table app/resources/js"
     },
     "repository": {
         "type": "git",
@@ -15,5 +18,10 @@
     "bugs": {
         "url": "https://github.com/Multimedia-Engineering-Regensburg-Demos/MME-AmbiPlayer/issues"
     },
-    "homepage": "https://github.com/Multimedia-Engineering-Regensburg-Demos/MME-AmbiPlayer#readme"
+    "homepage": "https://github.com/Multimedia-Engineering-Regensburg-Demos/MME-AmbiPlayer#readme",
+    "dependencies": {
+        "eslint": "^8.0.1",
+        "express": "^4.17.1",
+        "open": "^8.3.0"
+    }
 }
