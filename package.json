@@ -21,7 +21,7 @@
     "homepage": "https://github.com/Multimedia-Engineering-Regensburg-Demos/MME-AmbiPlayer#readme",
     "dependencies": {
         "eslint": "^8.0.1",
-        "express": "^4.17.1",
+        "express": "^4.17.3",
         "open": "^8.3.0"
     }
 }
